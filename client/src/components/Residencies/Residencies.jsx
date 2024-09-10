@@ -1,6 +1,7 @@
 import React from "react";
 import data from "../../utils/slider.json";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import PropertyCard from "../PropertyCard/PropertyCard";
 // Import Swiper styles
 import "swiper/css";
 import "./Residencies.css";
@@ -18,16 +19,7 @@ const Residencies = () => {
           {/* slider */}
           {data.map((card, i) => (
             <SwiperSlide key={i}>
-              <div className="flexColStart r-card">
-                <img src={card.image} alt="home" />
-
-                <span className="secondaryText r-price">
-                  <span style={{ color: "orange" }}>$</span>
-                  <span>{card.price}</span>
-                </span>
-                <span className="primaryText">{card.name}</span>
-                <span className="secondaryText">{card.detail}</span>
-              </div>
+              <PropertyCard card={card} />
             </SwiperSlide>
           ))}
         </Swiper>
