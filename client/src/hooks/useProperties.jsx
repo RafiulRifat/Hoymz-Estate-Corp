@@ -1,7 +1,16 @@
 import React from "react";
+import { useQuery } from "react-query";
+import { getAllProperties } from "../utils/api";
 
 const useProperties = () => {
-  return <div></div>;
+  const { data, isLoading, isError, refetch } = useQuery(
+    "allProperties",
+    getAllProperties,
+    { refetchOnWindowFocus: false }
+  );
+
+  // Correctly return the object
+  return { data, isError, isLoading, refetch };
 };
 
 export default useProperties;
