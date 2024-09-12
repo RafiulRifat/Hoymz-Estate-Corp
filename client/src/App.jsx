@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Property from "./pages/Property/Property";
 import UserDetailContext from "./context/UserDetailContext";
-import { MantineProvider } from "@mantine/core"; // Import MantineProvider
+import { MantineProvider } from "@mantine/core";
 
 function App() {
   const queryClient = new QueryClient();
