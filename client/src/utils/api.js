@@ -1,5 +1,6 @@
 import axios from "axios";
 import dayjs from "dayjs";
+
 import { toast } from "react-toastify";
 
 export const api = axios.create({
@@ -39,4 +40,23 @@ export const api = axios.create({
       throw error;
     }
   };
+
+
+  export const createUser = async (email, token) => {
+    try {
+      await api.post(
+        `/user/register`,
+        { email },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      toast.error("Something went wrong, Please try again");
+      throw error;
+    }
+  };
+  
   
