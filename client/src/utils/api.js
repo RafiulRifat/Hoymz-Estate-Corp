@@ -178,6 +178,30 @@ export const api = axios.create({
       throw error
     }
   }
+
+
+
+
+
+  export const createResidency = async (data, token) => {
+    console.log(data)
+    try{
+      const res = await api.post(
+        `/residency/create`,
+        {
+          data
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+    }catch(error)
+    {
+      throw error
+    }
+  }
   
   
   
