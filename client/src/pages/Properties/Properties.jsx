@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
-
 import "./Properties.css";
 import useProperties from "../../hooks/useProperties";
 import { PuffLoader } from "react-spinners";
@@ -8,6 +7,7 @@ import PropertyCard from "../../components/PropertyCard/PropertyCard";
 
 const Properties = () => {
   const { data, isError, isLoading } = useProperties();
+  const [filter, setFilter] = useState("");
 
   if (isError) {
     return (
@@ -31,18 +31,29 @@ const Properties = () => {
     );
   }
 
+  // Filter and reverse the data
+  const filteredAndReversedData = data
+    .filter(
+      (property) =>
+        property.title.toLowerCase().includes(filter.toLowerCase()) ||
+        property.city.toLowerCase().includes(filter.toLowerCase()) ||
+        property.country.toLowerCase().includes(filter.toLowerCase())
+    )
+    .reverse(); // Reverse the filtered data
+
   return (
     <div className="wrapper">
       <div className="flexColCenter paddings innerWidth properties-container">
-        <SearchBar />
+        <SearchBar filter={filter} setFilter={setFilter} />
 
         <div className="paddings flexCenter properties">
-          {data
-            .slice(7, 25)
-            .reverse()
-            .map((card, i) => (
-              <PropertyCard card={card} key={i} />
-            ))}
+          {filteredAndReversedData.length > 0 ? (
+            filteredAndReversedData.map((card, index) => (
+              <PropertyCard card={card} key={card.id || index} />
+            ))
+          ) : (
+            <div>No properties found</div>
+          )}
         </div>
       </div>
     </div>
