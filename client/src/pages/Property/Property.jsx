@@ -3,7 +3,6 @@ import { useMutation, useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
 import { getProperty, removeBooking } from "../../utils/api";
 import { PuffLoader } from "react-spinners";
-import { AiFillHeart } from "react-icons/ai";
 
 import "./Property.css";
 
@@ -17,6 +16,7 @@ import BookingModal from "../../components/BookingModal/BookingModal";
 import UserDetailContext from "../../context/UserDetailContext.js";
 import { Button } from "@mantine/core";
 import { toast } from "react-toastify";
+import Heart from "../../components/Heart/Heart.jsx";
 
 const Property = () => {
   const { pathname } = useLocation();
@@ -71,7 +71,7 @@ const Property = () => {
       <div className="flexColStart paddings innerWidth property-container">
         {/* like button */}
         <div className="like">
-          <AiFillHeart size={24} color="white" />
+          <Heart id={id} />
         </div>
 
         {/* image */}

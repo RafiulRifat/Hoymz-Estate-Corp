@@ -102,6 +102,28 @@ export const api = axios.create({
       throw error;
     }
   };
+
+
+
+
+  export const toFav = async (id, email, token) => {
+    try {
+      await api.post(
+        `/user/toFav/${id}`,
+        {
+          email,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (e) {
+      throw e;
+    }
+  };
+  
   
 
   
