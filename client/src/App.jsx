@@ -11,7 +11,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Property from "./pages/Property/Property";
-import UserDetailContext from "./context/UserDetailContext.js";
+import UserDetailContext from "./context/UserDetailContext";
 import { MantineProvider } from "@mantine/core";
 import Bookings from "./pages/Bookings/Bookings";
 import Favourites from "./pages/Favourites/Favourites";
