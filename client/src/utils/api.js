@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
 export const api = axios.create({
-     baseURL: "https://hoymz-estate-corp-black.vercel.app/api"
+     baseURL: "https://hoymz-estate-corp.vercel.app/api"
 
   });
 
