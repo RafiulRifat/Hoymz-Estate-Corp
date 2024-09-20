@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       domain="dev-8iee6ndumnqslye8.us.auth0.com"
       clientId="CQ65ZevqpNNjRt2qsqZYXRKWG0p8EfpE"
       authorizationParams={{
-        redirect_uri: "https://hoymz-estate-corp.vercel.app",
+        redirect_uri: "https://hoymz-estate-corp-black.vercel.app",
       }}
       audience="http://localhost:8000"
       scope="openid profile email"
